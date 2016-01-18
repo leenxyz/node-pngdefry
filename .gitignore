@@ -2,4 +2,3 @@
 node_modules/
 .tags
 npm-debug.log
-test.js
