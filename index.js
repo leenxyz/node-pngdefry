@@ -3,10 +3,23 @@
 var cp = require('child_process');
 var path = require('path');
 var fs = require('fs');
+var os = require('os');
 
 module.exports = function(input, output, cb) {
   var suffix = '-new';
-  var pngdefryBinPath = path.join(__dirname, 'pngdefry', 'bin', 'pngdefry');
+  var pngdefryBinPath;
+
+  // Darwin
+  // Linux
+  // Windows_NT
+  if (os.type() === 'Darwin') {
+    pngdefryBinPath = path.join(__dirname, 'pngdefry', 'bin', 'osx', 'pngdefry');
+  } else if (os.type() === 'Linux') {
+    pngdefryBinPath = path.join(__dirname, 'pngdefry', 'bin', 'linux', 'pngdefry');
+  } else {
+    pngdefryBinPath = path.join(__dirname, 'pngdefry', 'bin', 'windows', 'pngdefry');
+  }
+
   var newOutput = getNewOutput(output);
   var outputFileName = getOutputFileName(input, newOutput);
 
