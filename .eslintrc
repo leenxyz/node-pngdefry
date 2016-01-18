@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jquery": true,
+    "jasmine": true
+  },
+  "globals": {
+    "angular": false,
+    "$": false,
+    "_": false,
+    "Handlebars": false,
+    "moment": false,
+    "alasql": false,
+
+    "inject": false,
+
+    "getJSONFixture": false
+
+  },
+  "rules": {
+    "strict": [2, "global"],
+    "no-use-before-define": 0,
+    "no-alert": 1,
+    "curly": [2, "multi-line"],
+    "eol-last": 0,
+    "consistent-return": 0,
+    "yoda": [2, "never"],
+    "no-mixed-requires": 0,
+    "no-unused-vars": [2, {
+      "vars": "all",
+      "args": "none"
+    }],
+    "camelcase": [1, {
+      "properties": "always"
+    }],
+    "indent": [1, 2],
+    "quotes": [1, "single"]
+
+  }
+}

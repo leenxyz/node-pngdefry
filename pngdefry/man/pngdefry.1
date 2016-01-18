@@ -1,0 +1,127 @@
+.\" Standard preamble:
+.\" ========================================================================
+.de Sp \" Vertical space (when we can't use .PP)
+.if t .sp .5v
+.if n .sp
+..
+.de Vb \" Begin verbatim text
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve \" End verbatim text
+.ft R
+.fi
+..
+.\" Set up some character translations and predefined strings.  \*(-- will
+.\" give an unbreakable dash, \*(PI will give pi, \*(L" will give a left
+.\" double quote, and \*(R" will give a right double quote.  \*(C+ will
+.\" give a nicer C++.  Capital omega is used to do unbreakable dashes and
+.\" therefore won't be available.  \*(C` and \*(C' expand to `' in nroff,
+.\" nothing in troff, for use with C<>.
+.tr \(*W-
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.ie n \{\
+.    ds -- \(*W-
+.    ds PI pi
+.    if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.    if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\"  diablo 12 pitch
+.    ds L" ""
+.    ds R" ""
+.    ds C` ""
+.    ds C' ""
+'br\}
+.el\{\
+.    ds -- \|\(em\|
+.    ds PI \(*p
+.    ds L" ``
+.    ds R" ''
+'br\}
+.\"
+.\" Escape single quotes in literal strings from groff's Unicode transform.
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\"
+.\" If the F register is turned on, we'll generate index entries on stderr for
+.\" titles (.TH), headers (.SH), subsections (.SS), items (.Ip), and index
+.\" entries marked with X<> in POD.  Of course, you'll have to process the
+.\" output yourself in some meaningful fashion.
+.ie \nF \{\
+.    de IX
+.    tm Index:\\$1\t\\n%\t"\\$2"
+..
+.    nr % 0
+.    rr F
+.\}
+.el \{\
+.    de IX
+..
+.\}
+.\" ========================================================================
+.\"
+.IX Title "pngdefry 1"
+.TH pngdefry 1 "2012-01-22" "pngdefry" "2012-01-22"
+.\" For nroff, turn off justification.  Always turn off hyphenation; it makes
+.\" way too many mistakes in technical documents.
+.if n .ad l
+.nh
+.SH "NAME"
+pngdefry \- Removes \-iphone optimization and reorders RGB(A) pixels for PNG images
+.SH "SYNOPSIS"
+.IX Header "SYNOPSIS"
+.Vb 3
+\&  pngdefry [\-soaplvid] file.png [file.png [...]]
+.Ve
+.SH "OPTIONS"
+.IX Header "OPTIONS"
+.IP "\fB\-s(suffix)\fR" 4
+.IX Item "-s(suffix)"
+Appends suffix to output file name.
+.IP "\fB\-o(path)\fR" 4
+.IX Item "-o(path)"
+Writes output file(s) to path.
+Note: without -s or -o, NO output will be created.
+.IP "\fB\-a\fR" 4
+.IX Item "-a"
+Do NOT de-multiply alpha.
+.IP "\fB\-l\fR" 4
+.IX Item "-l"
+Lists all chunks.
+.IP "\fB\-v\fR" 4
+.IX Item "-v"
+Verbose processing.
+.IP "\fB\-i(value)\fR" 4
+.IX Item "-i(value)"
+Max IDAT chunk size in bytes (minimum: 1024; default: 524288).
+.IP "\fB\-p\fR" 4
+.IX Item "-p"
+Processes all files, not just -iphone ones (for debugging purposed only).
+.IP "\fB\-d\fR" 4
+.IX Item "-d"
+Very verbose processing (for debugging purposes only).
+
+
+
+.SH "DESCRIPTION"
+.IX Header "DESCRIPTION"
+pngdefry attempts to remove \-iphone optimization from \s-1PNG\s0 files that are processed with Apple's modified pngcrush.
+.PP
+It removes the private critical data chunk "CgBI" if this is at the very start of the \s-1PNG\s0 file, unpacks IDAT chunks,
+reverses BGR(A) pixel order to RGB(A), undoes pre-multiplied alpha, repacks IDAT chunks, and outputs all to a new file.
+This is a command-line program with batch capabilities (e.g., pngdefry *.png).
+.SH "ENVIRONMENT"
+.IX Header "ENVIRONMENT"
+None.
+.SH "FILES"
+.IX Header "FILES"
+None.
+.SH "SEE ALSO"
+.IX Header "SEE ALSO"
+\&\fIpngcheck\fR\|(1)
+\&\fIpngcrush\fR\|(1)
+.SH "AUTHORS"
+.IX Header "AUTHORS"
+Program was written by Jongware <jongware@hotmail.com>.
+.PP
+This manual page was written by Jongware for
+\s-1Mac OS X 10.7.2\s0 (but may be used by others). Released as "un-licensed" public domain software. For more information, please refer to <http://unlicense.org/>

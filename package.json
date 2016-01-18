@@ -1,0 +1,43 @@
+{
+  "name": "pngdefry",
+  "description": "node pngdefry",
+  "version": "1.0.0",
+  "author": {
+    "name": "forsigner",
+    "email": "forsigner@gmail.com"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "pngdefry"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forsigner/pngdefry.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.10.3"
+  },
+  "files": [
+    "index.js",
+    "pngdefry/**/*",
+    "bin/pngdefry.js"
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/forsigner/pngdefry/issues"
+  },
+  "homepage": "https://github.com/forsigner/pngdefry",
+  "maintainers": [
+    {
+      "name": "forsigner",
+      "email": "forsigner@gmail.com"
+    }
+  ],
+  "directories": {}
+}

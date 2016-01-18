@@ -1,0 +1,46 @@
+{
+  "preset": "default",
+
+  "plugins": [
+    "esformatter-quotes",
+    "esformatter-semicolons",
+    "esformatter-literal-notation",
+    "esformatter-parseint",
+    "esformatter-spaced-lined-comment",
+    "esformatter-var-each",
+    "esformatter-collapse-objects",
+    "esformatter-remove-trailing-commas",
+    "esformatter-quote-props",
+    "esformatter-braces",
+    "esformatter-use-strict",
+    "esformatter-dot-notation"
+  ],
+
+  "quotes": {
+    "type": "single"
+  },
+
+  "collapseObjects": {
+    "ObjectExpression": {
+      "maxKeys": 5,
+      "maxDepth": 2
+    }
+  },
+
+  "indent" : {
+    "value": "  ",
+    "AlignComments": true
+  },
+
+  "whiteSpace": {
+    "before": {
+      "ObjectExpressionClosingBrace": 0,
+      "ModuleSpecifierClosingBrace": 0,
+      "PropertyName": 1
+    },
+    "after": {
+      "ObjectExpressionOpeningBrace": 0,
+      "ModuleSpecifierOpeningBrace": 0
+    }
+  }
+}
