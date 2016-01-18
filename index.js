@@ -6,7 +6,7 @@ var fs = require('fs');
 
 module.exports = function(input, output, cb) {
   var suffix = '-new';
-  var pngdefryBinPath = './pngdefry/bin/pngdefry';
+  var pngdefryBinPath = path.join(__dirname, 'pngdefry', 'bin', 'pngdefry');
   var newOutput = getNewOutput(output);
   var outputFileName = getOutputFileName(input, newOutput);
 
