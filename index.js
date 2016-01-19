@@ -26,6 +26,7 @@ module.exports = function(input, output, cb) {
   convert(input, newOutput, outputFilePath, function(err) {
     if (err) {
       cb(err);
+      return;
     }
 
     cb();
