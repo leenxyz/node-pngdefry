@@ -66,7 +66,7 @@ module.exports = function(input, output, cb) {
         return cb('convert fail, not a PNG file');
       }
 
-      if (!fsExistsSync(outputFilePath) || !fsExistsSync(output)) {
+      if (!fsExistsSync(outputFilePath)) {
         return cb('convert fail');
       }
 
