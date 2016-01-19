@@ -52,7 +52,7 @@ module.exports = function(input, output, cb) {
     pd.stdout.on('data', function(data) {
       console.log(data.toString());
 
-      if(data.toString().indexOf('not a PNG file') > -1) {
+      if (data.toString().indexOf('not a PNG file') > -1) {
         var converted = false;
       }
     });
@@ -62,11 +62,11 @@ module.exports = function(input, output, cb) {
         return cb('convert fail');
       }
 
-      if(!converted) {
+      if (!converted) {
         return cb('convert fail, not a PNG file');
       }
 
-      if(!fsExistsSync(outputFilePath) || !fsExistsSync(output)) {
+      if (!fsExistsSync(outputFilePath) || !fsExistsSync(output)) {
         return cb('convert fail');
       }
 
@@ -82,7 +82,8 @@ module.exports = function(input, output, cb) {
     } catch (e) {
       return false;
     }
+
     return true;
   }
 
-}
+};
