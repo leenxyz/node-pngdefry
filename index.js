@@ -28,7 +28,7 @@ module.exports = function(input, output, cb) {
       cb(err);
     }
 
-    cb(null);
+    cb();
   });
 
   // /////////////////////////////
