@@ -71,7 +71,7 @@ module.exports = function(input, output, cb) {
       }
 
       fs.renameSync(outputFilePath, output);
-      cb(null);
+      cb();
     });
 
   }
