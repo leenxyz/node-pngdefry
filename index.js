@@ -46,14 +46,27 @@ module.exports = function(input, output, cb) {
   }
 
   function convert(input, newOutput, outputFilePath, cb) {
+    var converted = true;
     var pd = cp.spawn(pngdefryBinPath, ['-s', suffix, '-o', newOutput, input]);
 
     pd.stdout.on('data', function(data) {
       console.log(data.toString());
+
+      if(data.toString().indexOf('not a PNG file') > -1) {
+        var converted = false;
+      }
     });
 
     pd.on('exit', function(code) {
       if (code !== 0) {
+        return cb('convert fail');
+      }
+
+      if(!converted) {
+        return cb('convert fail, not a PNG file');
+      }
+
+      if(!fsExistsSync(outputFilePath) || !fsExistsSync(output)) {
         return cb('convert fail');
       }
 
@@ -63,4 +76,13 @@ module.exports = function(input, output, cb) {
 
   }
 
-};
+  function fsExistsSync(path) {
+    try {
+      fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
+}
