@@ -6,7 +6,7 @@ var fs = require('fs');
 var os = require('os');
 
 module.exports = function(input, output, cb) {
-  var suffix = '-new';
+  var suffix = '-' + Date.now() + '-pngdefry';
   var pngdefryBinPath;
 
   // Darwin
@@ -21,9 +21,9 @@ module.exports = function(input, output, cb) {
   }
 
   var newOutput = getNewOutput(output);
-  var outputFileName = getOutputFileName(input, newOutput);
+  var outputFilePath = getOutputFilePath(input, newOutput);
 
-  convert(input, newOutput, outputFileName, function(err) {
+  convert(input, newOutput, outputFilePath, function(err) {
     if (err) {
       cb(err);
     }
@@ -38,14 +38,14 @@ module.exports = function(input, output, cb) {
     return arr.join(path.sep);
   }
 
-  function getOutputFileName(input, newOutput) {
+  function getOutputFilePath(input, newOutput) {
     var inputArr = input.split(path.sep);
     var originFileName = inputArr[inputArr.length - 1];
-    var outputFileName = path.join(newOutput, originFileName.replace(/\.png$/, suffix + '.png'));
-    return outputFileName;
+    var outputFilePath = path.join(newOutput, originFileName.replace(/\.png$/, suffix + '.png'));
+    return outputFilePath;
   }
 
-  function convert(input, newOutput, outputFileName, cb) {
+  function convert(input, newOutput, outputFilePath, cb) {
     var pd = cp.spawn(pngdefryBinPath, ['-s', suffix, '-o', newOutput, input]);
 
     pd.stdout.on('data', function(data) {
@@ -57,7 +57,7 @@ module.exports = function(input, output, cb) {
         return cb('convert fail');
       }
 
-      fs.renameSync(outputFileName, output);
+      fs.renameSync(outputFilePath, output);
       cb(null);
     });
 
