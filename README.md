@@ -1,19 +1,23 @@
-# pngdefry [![Build Status](https://travis-ci.org/forsigner/pngdefry.svg?branch=master)](https://travis-ci.org/forsigner/pngdefry)
+# pngdefry
 
 
-# Install
+# Command line
 
-```
+``` bash
 $ npm install -g pngdefry
 ```
-or
+then run:
 
+``` bash
+$ pngdefry -i icon.png -o icon.new.png
 ```
+
+#### In Node project
+
+
+``` bash
 $ npm install pngdefry --save-dev
 ```
-
-
-## Usage
 
 ``` js
 
