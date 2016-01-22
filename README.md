@@ -1,7 +1,7 @@
 # pngdefry
 
 
-# Command line
+### Command line
 
 ``` bash
 $ npm install -g pngdefry
@@ -12,7 +12,7 @@ then run:
 $ pngdefry -i icon.png -o icon.new.png
 ```
 
-#### In Node project
+### In Node project
 
 
 ``` bash
@@ -20,7 +20,6 @@ $ npm install pngdefry --save-dev
 ```
 
 ``` js
-
 var pngdefry = require('pngdefry');
 var path = require('path');
 
