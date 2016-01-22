@@ -23,7 +23,8 @@
   "files": [
     "index.js",
     "pngdefry/**/*",
-    "bin/pngdefry.js"
+    "bin/pngdefry.js",
+    "postinstall.js"
   ],
   "engines": {
     "node": ">= 0.8.0"
