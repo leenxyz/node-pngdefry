@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forsigner/pngdefry.git"
+    "url": "git+https://github.com/forsigner/node-pngdefry.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -32,9 +32,9 @@
     "postinstall": "node postinstall.js"
   },
   "bugs": {
-    "url": "https://github.com/forsigner/pngdefry/issues"
+    "url": "https://github.com/forsigner/node-pngdefry/issues"
   },
-  "homepage": "https://github.com/forsigner/pngdefry",
+  "homepage": "https://github.com/forsigner/node-pngdefry",
   "maintainers": [
     {
       "name": "forsigner",
