@@ -48,22 +48,14 @@ module.exports = function(input, output, cb) {
 
   function convert(input, newOutput, outputFilePath, cb) {
     var converted = true;
-    var pd = cp.exec(pngdefryBinPath + ' -s ' + suffix + ' -o ' + newOutput + ' ' + input, {});
+    var command = pngdefryBinPath + ' -s ' + suffix + ' -o ' + newOutput + ' ' + input;
 
-    pd.stdout.on('data', function(data) {
-      console.log(data.toString());
-
-      if (data.toString().indexOf('not a PNG file') > -1) {
-        converted = false;
-      }
-    });
-
-    pd.on('exit', function(code) {
-      if (code !== 0) {
-        return cb('convert fail');
+    cp.exec(command, {}, function(error, stdout, stderr) {
+      if (error) {
+        return cb(error);
       }
 
-      if (!converted) {
+      if (stdout.indexOf('not a PNG file') > -1) {
         return cb('convert fail, not a PNG file');
       }
 
@@ -71,10 +63,10 @@ module.exports = function(input, output, cb) {
         return cb('convert fail');
       }
 
+      console.log(stdout);
       fs.renameSync(outputFilePath, output);
       cb();
     });
-
   }
 
   function fsExistsSync(path) {

@@ -14,16 +14,15 @@ if (os.type() === 'Linux') {
   }
 
   var makeFileDir = path.join(process.cwd(), 'pngdefry', 'source');
+  var command = 'cd ' + makeFileDir + ' && make';
 
-  var make = cp.exec('cd ' + makeFileDir + ' && make', {});
-  make.on('exit', function(code) {
-    if (code !== 0) {
+  cp.exec(command, {}, function(error, stdout, stderr) {
+    if (error) {
       throw new Error('install fail');
     }
 
     cp.exec('mv ' + pngdefryPath + ' ' + linuxPath, {});
   });
-
 }
 
 // ///////////////////
