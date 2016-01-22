@@ -48,7 +48,7 @@ module.exports = function(input, output, cb) {
 
   function convert(input, newOutput, outputFilePath, cb) {
     var converted = true;
-    var pd = cp.exec(pngdefryBinPath + ' -s ' +  suffix + ' -o ' + newOutput + ' ' +  input, {});
+    var pd = cp.exec(pngdefryBinPath + ' -s ' + suffix + ' -o ' + newOutput + ' ' + input, {});
 
     pd.stdout.on('data', function(data) {
       console.log(data.toString());
