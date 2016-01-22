@@ -54,7 +54,7 @@ module.exports = function(input, output, cb) {
       console.log(data.toString());
 
       if (data.toString().indexOf('not a PNG file') > -1) {
-        var converted = false;
+        converted = false;
       }
     });
 
