@@ -110,7 +110,7 @@ int init_chunk (FILE *f, unsigned int filelength)
 {
 	struct chunk_t one_chunk;
 	unsigned char buf[8];
-	
+
 	if (fread (buf, 1,4, f) != 4)
 	{
 		if (feof(f))
@@ -121,14 +121,14 @@ int init_chunk (FILE *f, unsigned int filelength)
 	}
 
 	one_chunk.length = (buf[0] << 24) + (buf[1] << 16) + (buf[2] << 8) + buf[3];
-	
+
 	if (one_chunk.length > filelength-4)
 	{
 		if (flag_Debug)
 			printf ("    informational : chunk length %u larger than file\n", one_chunk.length);
 		return -1;
 	}
-	
+
 	one_chunk.data = (unsigned char *)malloc (one_chunk.length+4);
 	if (one_chunk.data == NULL)
 	{
@@ -449,7 +449,7 @@ int process (char *filename)
 	fseek (f, 0, SEEK_SET);
 
 	i = 0;
-	
+
 	fread (buf,1,8, f); i += 8;
 	if (memcmp (buf, png_magic_bytes, 8))
 	{
@@ -678,15 +678,15 @@ int process (char *filename)
    Type    Bit Depths
    ------  ----------  ----------------------------------
    0       1,2,4,8,16  Each pixel is a grayscale sample.
-   
+
    2       8,16        Each pixel is an R,G,B triple.
-   
+
    3       1,2,4,8     Each pixel is a palette index;
                        a PLTE chunk must appear.
-   
+
    4       8,16        Each pixel is a grayscale sample,
                        followed by an alpha sample.
-   
+
    6       8,16        Each pixel is an R,G,B triple,
                        followed by an alpha sample.
 ***/
@@ -906,7 +906,7 @@ int process (char *filename)
 			total_idat_size += pngChunks[i].length;
 			i++;
 		}
-	
+
 	/*** So far everything appears to check out. Let's try uncompressing the IDAT chunks. ***/
 		data_out = (unsigned char *)malloc (bytespline * imgheight + row_filter_bytes);
 		if (data_out == NULL)
@@ -931,7 +931,7 @@ int process (char *filename)
 
 		free (all_idat);
 		all_idat = NULL;
-	
+
 		if (out_length <= 0)
 		{
 			free (data_out);
@@ -946,7 +946,7 @@ int process (char *filename)
 			reset_chunks ();
 			return 0;
 		}
-	
+
 		if (out_length != imgheight*bytespline + row_filter_bytes)
 		{
 			if (didShowName)
@@ -1088,7 +1088,7 @@ int process (char *filename)
 			}
 		}
 
-	/*	Force VERY conservative repacking size ... */		
+	/*	Force VERY conservative repacking size ... */
 		repack_size = 2*(bytespline * imgheight + row_filter_bytes);
 		data_repack = (unsigned char *)malloc (repack_size);
 		if (data_repack == NULL)
@@ -1188,13 +1188,13 @@ int process (char *filename)
 				strcat (write_file_name, suffix);
 			strcat (write_file_name, ".png");
 		}
-	
+
 		if (!didShowName)
 		{
 			printf ("%s : ", filename);
 		}
 		printf ("writing to file %s\n", write_file_name);
-	
+
 		write_file = fopen (write_file_name, "wb");
 		if (!write_file)
 		{
@@ -1202,9 +1202,9 @@ int process (char *filename)
 			reset_chunks ();
 			return 0;
 		}
-	
+
 		fwrite (png_magic_bytes, 1, 8, write_file);
-	
+
 		i = 0;
 		/* need to skip first bogus chunk */
 		/* at this point, I expect the first one to be IHDR! */
@@ -1262,7 +1262,7 @@ int process (char *filename)
 					write_block_size = repack_length;
 				}
 			}
-		
+
 			/* skip original IDAT chunks */
 			while (i < num_chunks && pngChunks[i].id == 0x49444154)	/* "IDAT" */
 				i++;
@@ -1286,7 +1286,7 @@ int process (char *filename)
 				i++;
 			}
 		}
-	
+
 		/* output remaining chunks */
 		while (i < num_chunks)
 		{

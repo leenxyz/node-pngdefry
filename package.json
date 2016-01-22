@@ -28,7 +28,9 @@
   "engines": {
     "node": ">= 0.8.0"
   },
-  "scripts": {},
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
   "bugs": {
     "url": "https://github.com/forsigner/pngdefry/issues"
   },
