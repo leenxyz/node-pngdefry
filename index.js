@@ -60,7 +60,7 @@ module.exports = function(input, output, cb) {
       }
 
       if (!fsExistsSync(outputFilePath)) {
-        return cb('convert fail');
+        console.log("pngdefry is taking too much time to write the file on disk.");
       }
 
       console.log(stdout);
