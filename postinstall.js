@@ -4,12 +4,13 @@ var cp = require('child_process');
 var os = require('os');
 var path = require('path');
 var fs = require('fs');
+var util = require('./lib/util');
 
 if (os.type() === 'Linux') {
   var linuxPath = path.join(process.cwd(), 'lib', 'pngdefry', 'bin', 'linux');
   var pngdefryPath = path.join(process.cwd(), 'lib', 'pngdefry', 'source', 'pngdefry');
 
-  if (!fsExistsSync(linuxPath)) {
+  if (!util.fsExistsSync(linuxPath)) {
     fs.mkdir(linuxPath);
   }
 
@@ -23,15 +24,4 @@ if (os.type() === 'Linux') {
 
     cp.exec('mv ' + pngdefryPath + ' ' + linuxPath, {});
   });
-}
-
-// ///////////////////
-function fsExistsSync(path) {
-  try {
-    fs.accessSync(path, fs.F_OK);
-  } catch (e) {
-    return false;
-  }
-
-  return true;
 }

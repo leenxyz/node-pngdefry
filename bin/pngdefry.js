@@ -4,8 +4,8 @@
 var program = require('commander');
 var pngdefry = require('../lib/index');
 var path = require('path');
-var fs = require('fs');
 var pkg = require('../package.json');
+var util = require('../lib/util');
 
 program
   .version('v' + pkg.version)
@@ -41,7 +41,7 @@ function action(input, output) {
 }
 
 function checkInput(input) {
-  if (!fsExistsSync(input)) {
+  if (!util.fsExistsSync(input)) {
     throw new Error('input file is not a file');
   }
 }
@@ -52,18 +52,8 @@ function checkOutPut(output) {
     output = path.isAbsolute(output) ? output : path.join(process.cwd(), output);
   }
 
-  if (fsExistsSync(output)) {
+  if (util.fsExistsSync(output)) {
     throw new Error('out file is existed');
   }
 
-}
-
-function fsExistsSync(path) {
-  try {
-    fs.accessSync(path, fs.F_OK);
-  } catch (e) {
-    return false;
-  }
-
-  return true;
 }
