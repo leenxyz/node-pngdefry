@@ -1,5 +1,6 @@
-# pngdefry
+# node-pngdefry
 
+Repairing iPhone fried PNGs using Node.js
 
 ### Command line
 
