@@ -9,7 +9,8 @@
   "main": "index.js",
   "license": "MIT",
   "keywords": [
-    "pngdefry"
+    "pngdefry",
+    "node-pngdefry",
   ],
   "repository": {
     "type": "git",
