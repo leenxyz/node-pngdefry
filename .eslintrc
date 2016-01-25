@@ -4,21 +4,9 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jquery": true,
-    "jasmine": true
+    "jquery": true
   },
   "globals": {
-    "angular": false,
-    "$": false,
-    "_": false,
-    "Handlebars": false,
-    "moment": false,
-    "alasql": false,
-
-    "inject": false,
-
-    "getJSONFixture": false
-
   },
   "rules": {
     "strict": [2, "global"],
