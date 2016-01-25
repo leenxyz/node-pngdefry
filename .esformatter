@@ -1,6 +1,5 @@
 {
   "preset": "default",
-
   "plugins": [
     "esformatter-quotes",
     "esformatter-semicolons",
