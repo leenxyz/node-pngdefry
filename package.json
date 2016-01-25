@@ -6,11 +6,13 @@
     "name": "forsigner",
     "email": "forsigner@gmail.com"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT",
   "keywords": [
     "pngdefry",
     "node-pngdefry",
+    "ipa",
+    "png"
   ],
   "repository": {
     "type": "git",
@@ -24,7 +26,7 @@
     "eslint": "^1.10.3"
   },
   "files": [
-    "index.js",
+    "lib/**/*",
     "pngdefry/**/*",
     "bin/pngdefry.js",
     "postinstall.js"
