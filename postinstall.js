@@ -6,14 +6,14 @@ var path = require('path');
 var fs = require('fs');
 
 if (os.type() === 'Linux') {
-  var linuxPath = path.join(process.cwd(), 'pngdefry', 'bin', 'linux');
-  var pngdefryPath = path.join(process.cwd(), 'pngdefry', 'source', 'pngdefry');
+  var linuxPath = path.join(process.cwd(), 'lib', 'pngdefry', 'bin', 'linux');
+  var pngdefryPath = path.join(process.cwd(), 'lib', 'pngdefry', 'source', 'pngdefry');
 
   if (!fsExistsSync(linuxPath)) {
     fs.mkdir(linuxPath);
   }
 
-  var makeFileDir = path.join(process.cwd(), 'pngdefry', 'source');
+  var makeFileDir = path.join(process.cwd(), 'lib', 'pngdefry', 'source');
   var command = 'cd ' + makeFileDir + ' && make';
 
   cp.exec(command, {}, function(error, stdout, stderr) {
