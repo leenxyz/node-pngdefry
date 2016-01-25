@@ -36,3 +36,9 @@ pngdefry(input, output, function(err) {
 });
 
 ```
+
+### Test
+
+``` bash
+$ npm test
+```
