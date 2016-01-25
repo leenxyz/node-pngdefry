@@ -24,7 +24,7 @@ $ npm install pngdefry --save-dev
 var pngdefry = require('pngdefry');
 var path = require('path');
 
-var input = path.join(__dirname, 'icon-72.png');
+var input = path.join(__dirname, 'icon.png');
 var output = path.join(__dirname, 'icon.new.png');
 
 pngdefry(input, output, function(err) {
