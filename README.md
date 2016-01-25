@@ -1,4 +1,4 @@
-# node-pngdefry [![Build Status](https://travis-ci.org/forsigner/node-pngdefry.svg?branch=master)](https://travis-ci.org/forsigner/node-pngdefry)
+# node-pngdefry [![Build Status](https://travis-ci.org/forsigner/node-pngdefry.svg?branch=master)](https://travis-ci.org/forsigner/node-pngdefry) [![NPM Version](http://img.shields.io/npm/v/pngdefry.svg?style=flat)](https://www.npmjs.org/package/pngdefry)
 
 Repairing iPhone fried PNGs using Node.js
 
