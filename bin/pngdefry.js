@@ -2,7 +2,7 @@
 'use strict';
 
 var program = require('commander');
-var pngdefry = require('../index');
+var pngdefry = require('../lib/index');
 var path = require('path');
 var fs = require('fs');
 var pkg = require('../package.json');
@@ -33,7 +33,7 @@ action(input, output);
 function action(input, output) {
   pngdefry(input, output, function(err) {
     if (err) {
-      return;
+      throw new Error(err);
     }
 
     console.log('convert success');
