@@ -11,3 +11,4 @@ addons:
     - g++-4.8
 before_script:
   - npm install -g mocha
+  - npm install node-gyp -g
