@@ -1,3 +1,4 @@
+sudo: false
 language: node_js
 node_js:
   - 'stable'
@@ -9,6 +10,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+before_install:
+  - npm install node-gyp -g
 before_script:
   - npm install -g mocha
-  - npm install node-gyp -g
