@@ -12,7 +12,7 @@ describe('Util', function() {
     });
 
     it('should return true when path is existed', function() {
-      var testPath = path.join(__dirname, 'img', 'icon-60.png');
+      var testPath = path.join(__dirname, 'img', 'icon.png');
       assert.equal(util.fsExistsSync(testPath), true);
     });
   });
