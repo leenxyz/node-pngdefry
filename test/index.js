@@ -6,11 +6,11 @@ var rewire = require('rewire');
 var index = rewire('../lib/index');
 
 describe('Index', function() {
-  describe('#getNewOutput()', function() {
+  describe('#getOutputDir()', function() {
     it('should return a path that not contain the file name', function() {
       var output = path.join('Users', 'forsigner', 'repos', 'icon-new.png');
-      var newOuput = index.__get__('getNewOutput')(output);
-      newOuput.should.equal(path.join('Users', 'forsigner', 'repos'));
+      var ouputDir = index.__get__('getOutputDir')(output);
+      ouputDir.should.equal(path.join('Users', 'forsigner', 'repos'));
     });
   });
 });
