@@ -12,7 +12,7 @@ describe('Index', function() {
 
   describe('#pngdefry()', function() {
     it('should repair png success', function(done) {
-      this.timeout(50000000);
+      this.timeout(15000);
       var input = path.join(__dirname, 'img', 'icon.png');
       var output = path.join(__dirname, 'img', 'icon-new.png');
 
@@ -29,7 +29,7 @@ describe('Index', function() {
           // result=>PNG image data, 60 x 60, 8-bit/color RGBA, non-interlaced
           result.should.match(/non-interlaced/);
           fs.unlinkSync(output);
-          done();
+          setTimeout(done, 10000);
         });
       });
     });
