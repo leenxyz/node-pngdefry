@@ -12,7 +12,7 @@ describe('Index', function() {
 
   describe('#pngdefry()', function() {
     it('should repair png success', function(done) {
-      this.timeout(5000);
+      this.timeout(50000);
       var input = path.join(__dirname, 'img', 'icon.png');
       var output = path.join(__dirname, 'img', 'icon-new.png');
 
