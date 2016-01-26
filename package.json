@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^4.1.6",
-    "eslint": "^1.10.3"
+    "eslint": "^1.10.3",
+    "rewire": "^2.5.1",
+    "should": "^8.2.0"
   },
   "files": [
     "lib/**/*",
