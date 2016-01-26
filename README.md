@@ -50,3 +50,7 @@ pngdefry(input, output, function(err) {
 ``` bash
 $ npm test
 ```
+
+### License
+
+  [MIT](LICENSE)
