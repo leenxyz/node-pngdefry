@@ -4,5 +4,11 @@ node_js:
   - 'stable'
   - '4.0'
   - '0.12'
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 before_script:
-  - npm install -g mocha 
+  - npm install -g mocha
