@@ -13,4 +13,14 @@ describe('Index', function() {
       ouputDir.should.equal(path.join('Users', 'forsigner', 'repos'));
     });
   });
+
+  describe('#getOutputFilePath()', function() {
+    it('should return a path that not contain the file name', function() {
+      var input = path.join('Users', 'forsigner', 'repos', 'icon.png');
+      var outputDir = path.join('Users', 'forsigner', 'repos');
+      var suffix = '-new';
+      var outputFilePath = index.__get__('getOutputFilePath')(input, outputDir, suffix);
+      outputFilePath.should.equal(path.join('Users', 'forsigner', 'repos', 'icon-new.png'));
+    });
+  });
 });
