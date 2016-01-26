@@ -1,18 +1,16 @@
 'use strict';
 
-var assert = require('assert');
-var util = require('../lib/util');
+var should = require('should');
 var path = require('path');
+var rewire = require('rewire');
+var index = rewire('../lib/index');
 
-describe('Util', function() {
-  describe('#fsExistsSync()', function() {
-    it('should return false when path is not existed', function() {
-      assert.equal(util.fsExistsSync('/I/am/not/existed'), false);
-    });
-
-    it('should return true when path is existed', function() {
-      var testPath = path.join(__dirname, 'img', 'icon-60.png');
-      assert.equal(util.fsExistsSync(testPath), true);
+describe('Index', function() {
+  describe('#getNewOutput()', function() {
+    it('should return a path that not contain the file name', function() {
+      var output = path.join('Users', 'forsigner', 'repos', 'icon-new.png');
+      var newOuput = index.__get__('getNewOutput')(output);
+      newOuput.should.equal(path.join('Users', 'forsigner', 'repos'));
     });
   });
 });
