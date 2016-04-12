@@ -11,28 +11,26 @@ var magic = new Magic();
 describe('Index', function() {
 
   describe('#pngdefry()', function() {
-    // it('should repair png success', function(done) {
-    it('should repair png success', function() {
-      // this.timeout(115000);
-      // var input = path.join(__dirname, 'img', 'icon.png');
-      // var output = path.join(__dirname, 'img', 'icon-new.png');
+    it('should repair png success', function(done) {
+      var input = path.join(__dirname, 'img', 'icon.png');
+      var output = path.join(__dirname, 'img', 'icon-new.png');
 
-      // pngdefry(input, output, function(err) {
-      //   if (err) {
-      //     return;
-      //   }
-      //
-      //   magic.detectFile(output, function(err, result) {
-      //     if (err) {
-      //       throw err;
-      //     }
-      //
-      //     // result=>PNG image data, 60 x 60, 8-bit/color RGBA, non-interlaced
-      //     result.should.match(/non-interlaced/);
-      //     fs.unlinkSync(output);
-      //     setTimeout(done, 110000);
-      //   });
-      // });
+      pngdefry(input, output, function(err) {
+        if (err) {
+          throw err;
+        }
+      
+        magic.detectFile(output, function(err, result) {
+          if (err) {
+            throw err;
+          }
+      
+          // result=>PNG image data, 60 x 60, 8-bit/color RGBA, non-interlaced
+          result.should.match(/non-interlaced/);
+          fs.unlinkSync(output);
+          done();
+        });
+      });
     });
   });
 
