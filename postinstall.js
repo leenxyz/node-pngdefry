@@ -11,7 +11,7 @@ if (os.type() === 'Linux') {
   var pngdefryPath = path.join(process.cwd(), 'lib', 'pngdefry', 'source', 'pngdefry');
 
   if (!util.fsExistsSync(linuxPath)) {
-    fs.mkdir(linuxPath);
+    fs.mkdirSync(linuxPath);
   }
 
   var makeFileDir = path.join(process.cwd(), 'lib', 'pngdefry', 'source');
